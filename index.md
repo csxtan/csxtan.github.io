@@ -13,5 +13,8 @@ Contact:
    
 ## Papers and preprints
 * [Smallest nonabelian quotients of surface braid groups](https://arxiv.org/abs/2301.01872), in preparation.
-* [Spaces of generators for matrix algebras with involution](https://arxiv.org/abs/1912.03027) (with [Ben Williams](https://personal.math.ubc.ca/~tbjw/) and Taeuk Nam), to appear in _Linear and Multilinear Algebra_.
+* [Spaces of generators for matrix algebras with involution](https://arxiv.org/abs/1912.03027) (with [Ben Williams](https://personal.math.ubc.ca/~tbjw/) and Taeuk Nam), _Linear and Multilinear Algebra_ 71(8).
+
+## Talks
+* [Small quotients of surface braid groups](2023-ncngt.pdf), for the Nearly Carbon Neutral Geometry and Topology Conference, June 2023.
 
