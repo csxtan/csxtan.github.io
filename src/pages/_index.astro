@@ -6,7 +6,6 @@ import "../styles/main.scss";
 const today = new Date();
 const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 let todayMonth = months[today.getMonth()];
-/* let todayYear = today.getFullYear(); */
 let lastUpdated = todayMonth.concat(" ", today.getFullYear().toString() );
 ---
 
@@ -14,14 +13,14 @@ let lastUpdated = todayMonth.concat(" ", today.getFullYear().toString() );
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 
   <title>{content.title}</title>
 </head>
 
 <body>
   <div class="container">
-  <img class="headshot" src="/face.jpg" alt="Cindy" />
+  <img class="headshot" src="face.jpg" alt="Cindy" />
     <slot />
 
   <footer class="footer">
@@ -35,9 +34,8 @@ let lastUpdated = todayMonth.concat(" ", today.getFullYear().toString() );
   </div>
 
 
-<script>
 
-// open external links and files in a new tab
+<script> // open external links and files in a new tab
 function new_tab_links() {
     if (!document.getElementsByTagName) return false;
     for(var links = document.getElementsByTagName("a"), i = 0; i < links.length; i++) {

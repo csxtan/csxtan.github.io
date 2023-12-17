@@ -66,6 +66,11 @@ body {
     text-align: center;
     margin-top: 3rem;
   }
+
+  .header {
+    max-width: 55rem;
+    margin: 0 auto;
+  }
 }
 
 
@@ -184,7 +189,8 @@ li p {
   // &:last-child a:not(:first-child)::before{
    &:last-child a::before {
     content: "⏵";
-    font-size: 0.8rem;
+    // content: "➤";
+    font-size: 0.7rem;
     color: $dark-blue;
     display: inline-block;
       margin: 0 0.4rem 0 0.7rem;
@@ -201,7 +207,7 @@ li p {
 
 // Footer
 
-.footer {
+@mixin small-text {
   p {
     color: $lighter-grey;
     font-size: 0.85rem;
@@ -211,14 +217,27 @@ li p {
   a {
     color: inherit;  // make link grey not blue
     // text-decoration: none;
-    text-decoration-color: $off-white;
 
     &:hover, &:focus {
       color: $off-black;
+      text-decoration-color: $darker-grey;
       text-decoration: underline;
       text-decoration-thickness: 0.1rem;
     }
   }
 }
 
+.footer {
+  @include small-text;
+}
 
+.header {
+  @include small-text;
+
+  p a:first-child::before {
+    content: "◂";
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+}

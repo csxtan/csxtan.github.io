@@ -5,7 +5,7 @@ layout: ./_index.astro
 
 # Cindy Tan
 
-I am a fourth year PhD student studying mathematics at the University of Chicago. My advisor is [Benson Farb](http://www.math.uchicago.edu/~farb/). Previously, I was an undergraduate at the University of British Columbia.
+I am a fourth year PhD student at the University of Chicago. My advisor is [Benson Farb](http://www.math.uchicago.edu/~farb/). Previously, I was an undergraduate at the University of British Columbia.
 
 My email is <a id="email" href="mailto:&#99;&#105;&#110;&#100;&#121;&#64;&#109;&#97;&#116;&#104;&#46;&#117;&#99;&#104;&#105;&#99;&#97;&#103;&#111;&#46;&#101;&#100;&#117;">cindy@<span style="display:none;">math.uchicago.edu</span>math.uchicago.edu</a>.
    
