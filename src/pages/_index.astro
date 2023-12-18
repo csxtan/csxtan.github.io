@@ -19,21 +19,22 @@ let lastUpdated = todayMonth.concat(" ", today.getFullYear().toString() );
 </head>
 
 <body>
-  <div class="container">
-  <img class="headshot" src="face.jpg" alt="Cindy" />
-    <slot />
 
-  <footer class="footer">
-    <p>
-      Last updated: {lastUpdated}.
-    </p>
-    <p>
-      Photo by <a href="https://www.flickr.com/people/ttcg95">Tim</a>.
-    </p>
-  </footer>
-  </div>
+    <div class="main">
+      <img class="headshot" src="face.jpg" alt="Cindy" />
+      <slot />
+    </div>
 
+    <footer class="footer">
+      <p>
+        Last updated: {lastUpdated}.
+      </p>
+      <p>
+        Photo by <a href="https://www.flickr.com/people/ttcg95">Tim</a>.
+      </p>
+    </footer>
 
+</body>
 
 <script> // open external links and files in a new tab
 function new_tab_links() {
@@ -51,6 +52,4 @@ function new_tab_links() {
 }
 new_tab_links();
 </script>
-
-</body>
 </html>

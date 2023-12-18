@@ -1,160 +1,211 @@
 
 @charset "UTF-8";
 
+// https://github.com/sindresorhus/modern-normalize
 @import "../../node_modules/modern-normalize/modern-normalize.css";
 
-// @import "../../node_modules/bulma/sass/utilities/_all.sass";
 
+
+
+// FONT FAMILIES
 
 $family-serif: "Times New Roman", serif;
 $family-sans-serif: Arial, Helvetica, sans-serif;
-$background-color: #FFFFFF;
 
-// palette
 
-$off-black: #222222;
-$darker-grey: #444444;
+
+
+// PALETTE
+
+// PALETTE / colours
+// colour names and hex codes only
+
+$black:        #000000;
+$off-black:    #222222;
+$darker-grey:  #444444;
+$dark-grey:    #666666;
+$grey:         #888888;
+$light-grey:   #999999;
 $lighter-grey: #BBBBBB;
-$off-white: #DDDDDD;
-$grey: #888888;
+$off-white:    #DDDDDD;
+$white:        #ffffff;
 
-$blue: #0074d9;  /* From http://clrs.cc */
-$dark-blue: #0057A3;
-$darker-blue: #003A6D;
-$pink: #B6244F;
-$mint: #09BC8A;
-$purple: #3A0CA3;
+$blue:         #0074d9;  /* From http://clrs.cc */
+$dark-blue:    #0057A3;
+$darker-blue:  #003A6D;
 
 
-$text-color: $darker-grey;
-$heading-color: $off-black;
-$title-color: $off-black;  // titles of papers / talks
-$name-color: black;
+// PALETTE / semantic
+// colour variables for the page
 
-$link-color: $blue;
-$link-hover-color: $darker-blue;
+$background-color:
+  $white;
+
+$text-color:  // normal text
+  $darker-grey;
+
+$name-color:  // h1 (my name)
+  $black;
+
+$heading-color:  // h2 - h6
+  $off-black;
+
+$title-color:  // titles of papers / talks
+  $off-black;
+
+$link-color:
+  $blue;
+
+$link-hover-color:
+  $darker-blue;
 
 
-$container-max-width: 50em;
+
+
+// FLUID LENGTHS (min at 480px, max at 800px)
+// https://utopia.fyi/clamp/calculator?a=480,800,48—72
+
+$--space-075: clamp(0.5rem, 0.125rem + 1.25vw, 0.75rem);
+$--space-115: clamp(0.75rem, 0.1875rem + 1.875vw, 1.125rem);
+$--space-150: clamp(1rem, 0.25rem + 2.5vw, 1.5rem);
+$--space-225: clamp(1.5rem, 0.375rem + 3.75vw, 2.25rem);
+$--space-300: clamp(2rem, 0.5rem + 5vw, 3rem);
+$--space-450: clamp(3rem, 0.75rem + 7.5vw, 4.5rem);
+$--space-600: clamp(4rem, 1rem + 10vw, 6rem);
+$--space-900: clamp(6rem, 1.5rem + 15vw, 9rem);
+
+
+$--type-070: clamp(0.6513rem, 0.6225rem + 0.115vw, 0.68rem);
+$--type-085: clamp(0.7813rem, 0.7125rem + 0.275vw, 0.85rem);
+$--type-105: clamp(0.9375rem, 0.8125rem + 0.5vw, 1.0625rem);
+$--type-135: clamp(1.125rem, 0.9219rem + 0.8125vw, 1.3281rem);
+$--type-165: clamp(1.35rem, 1.04rem + 1.24vw, 1.66rem);
+$--type-210: clamp(1.62rem, 1.165rem + 1.82vw, 2.075rem);
+$--type-260: clamp(1.9438rem, 1.2938rem + 2.6vw, 2.5938rem);
+$--type-324: clamp(2.3325rem, 1.4225rem + 3.64vw, 3.2425rem);
+
+
+
+// LENGTH CONSTANTS
+
+$max-width: 50em;
+
 $break-1: 30em;
 $break-2: 40em;
-$break-3: $container-max-width;
+$break-3: $max-width;
 
-$h2-size: 1.5rem;
 
-// Layout
+$h1-weight: 600;
+$header-weight: 600;
+
+$h1-size: $--type-260;
+$h2-size: $--type-165;
+
+$text-size: $--type-135;
+
+
+// LAYOUT
 
 body {
-  padding: 3rem 1.5rem;
+  // on small viewports, narrow border to 6vw
+  // otherwise, big top/bottom margins
+  padding: $--space-450 min($--space-225, 6vw);
 
-  @media (min-width: $break-1) {
-   padding: 3rem 2rem;
-  }
-
-  @media (min-width: $break-3) {
-    padding: 4.5rem 3rem;
-
-    .container {
-      max-width: 50rem;
-      margin: 0 auto;
-    }
-  }
-
-  background-color: $background-color;
-
-  .footer {
-    text-align: center;
-    margin-top: 3rem;
-  }
-
-  .header {
-    max-width: 55rem;
-    margin: 0 auto;
-  }
+  // set page width and center page
+  max-width: calc($max-width + $--space-450);
+  margin: 0 auto;
 }
 
+.main {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $--space-075;
+}
+
+.footer {
+  text-align: center;
+  margin-top: $--space-300;
+}
+
+.header {
+  margin-bottom: $--space-150;
+}
+
+
+// LAYOUT / face and name
 
 img.headshot {
   border-radius: 50%;
-  max-width: 8rem;
+}
+
+// @ mobile
+img.headshot {
   display: block;
+  max-width: 8rem;
   margin: auto;
-
-  @media (min-width: $break-1) {
-    float: right;
-    margin-bottom: 1rem;
-    margin-left: clamp(1.5rem, 1.3261rem + 0.8696vw, 2rem);
-    max-width: clamp(12rem, 35vw, 14rem);
-  }
-}
-
-
-
-// CONTENT STYLING
-
-// text spacing and header styles
-
-p, ul, ol, dl, table, pre, blockquote {
-  margin: 0.75rem 0;
-}
-
-h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  margin: 2em 0 0.5em;
-  color: $heading-color;
 }
 
 h1 {
   text-align: center;
-  font-weight: 600;
+  font-weight: $h1-weight;
   color: $name-color;
+}
 
-  @media (min-width: $break-1) {
-    font-size: 2.2rem;
-    margin: 2rem 0 1.5rem;
+// @ larger than mobile
+@media (min-width: $break-1) {
+
+  img.headshot {
+    float: right;
+    margin: 0 0 $--space-115 $--space-225;
+    max-width: clamp(12rem, 35vw, 14rem);
+  }
+
+  h1 {
+    font-size: $h1-size;
+    margin: $--space-225 0 $--space-150;
     text-align: left;
   }
 }
 
-h2 {
-  font-size: $h2-size;
-}
 
 
+// MAIN CONTENT STYLING
+// markdown components in .main container
+// - H1 styling is in previous section
+// - H3-H6 are not currently supported
 
-
-
-// Text styling
+// MAIN / fonts and spacing
 
 html {
   -webkit-font-smoothing: antialiased;
   font-size: clamp(0.9375rem, 0.894rem + 0.2174vw, 1.0625rem);
-}
-
-body {
   font-family: $family-sans-serif;
 }
 
-p, li {
+// headers
+h2 {
+  margin: $--space-225 0 $--space-075;
+  font-weight: $header-weight;
+  color: $heading-color;
+  font-size: $h2-size;
+}
+
+// normal text
+p, ul, ol {
+  margin: $--space-075 0;
   color: $text-color;
-  font-size: 1rem;
   line-height: 1.5;
 }
 
-
-
-
-// Links
-
+// links
 a {
   color: $link-color;
   // text-decoration: none;
   text-underline-offset: 0.1rem;
-  // text-decoration-thickness: 0.12rem;
   text-decoration-thickness: 0.05rem;
 
   &:hover, &:focus  {
-    color: $link-hover-color; /* From http://clrs.cc */
+    color: $link-hover-color;
     text-decoration: underline;
     text-decoration-thickness: 0.1rem;
   }
@@ -162,56 +213,102 @@ a {
 
 
 
-// Lists (annotations for papers / talks)
 
-ul, ol {
-  padding-left: 1.5rem;
+// STYLIZED LISTS (annotations for papers / talks)
+
+// reduce left padding in first-level list
+ul, ol, dl {
+  padding-left: $--space-150;
 }
 
-li p {
-  font-size: 0.95rem;
 
-  &:first-child strong {
-    font-size: 1rem;
+// STYLIZED LISTS / layout of annotations and triangle decoration on links
+
+$link-triangle-gap: 0.4rem;  // gap between triangle and link text
+
+:is(ul, ol, dl) li {
+
+  margin-bottom: $--space-075;
+
+  // remove spacing and bullets from second-level list
+  p, ul, ol, dl, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  // treat annotations as rectangular blocks that can wrap
+  ul li {
+    display: inline-block;
+  }
+
+  // formatting second-level list + triangle decoration
+  ul li:has(a) {
+
+    // text-indent moves top line relative to the rest of the lines
+    // changing the gap between triangle and the link will also move the top line relative to the rest
+    text-indent: -#{$link-triangle-gap};
+
+    // padding-left moves all lines together left to right
+    padding-left: $--space-150;
+
+    // make spacing better when the list items are side by side on larger displays
+    padding-right: 0.2rem;
+
+    // prevent triangle being on a separate line
+    p {
+      display: inline;
+    }
+
+    // add triangle
+    &::before {
+      content: "\23F5";  // right triangle ⏵
+      font-size: 0.7rem;
+      color: $dark-blue;
+
+      // otherwise triangle gets underlined
+      display: inline-block;
+
+      margin-right: $link-triangle-gap;
+    }
+
+    // fix the case when inline <p> adds extra left margin
+    &:has(p)::before {
+      margin-right: calc($link-triangle-gap - 0.3rem)
+    }
+
+    // extra space after italics and bold (ex. journal title)
+    strong em::after {
+      content: "\2006";  // 6 per em space
+    }
+  }
+}
+
+
+// STYLIZED LISTS / additional text formatting in lists
+
+ul li {
+
+  // bold titles of papers / talks
+  p:first-child {
     color: $title-color;
   }
 
-  margin-top: 0;
-
-  &:not(:last-child) {
-    margin: 0;
-  }
-
-  &:not(:first-child) {
-    font-size: 0.9rem;
-  }
-
-  // &:last-child a:not(:first-child)::before{
-   &:last-child a::before {
-    content: "⏵";
-    // content: "➤";
-    font-size: 0.7rem;
-    color: $dark-blue;
-    display: inline-block;
-      margin: 0 0.4rem 0 0.7rem;
-  }
-
-  // extra space after italics and bold (ex. journal title)
-  &:last-child a strong em::after {
-    content: "\2009";
+  li :is(p,a) {
+    font-size: 0.95rem;
   }
 }
 
 
 
 
-// Footer
+// SMALL TEXT (footer / header)
 
 @mixin small-text {
   p {
     color: $lighter-grey;
     font-size: 0.85rem;
-    margin: 0.5rem;
+    margin: 0.4rem 0;
   }
 
   a {
@@ -227,17 +324,16 @@ li p {
   }
 }
 
-.footer {
+.footer, .header {
   @include small-text;
 }
 
-.header {
-  @include small-text;
+.header-back {
 
+  // left triangle decoration on "back to homepage" link
   p a:first-child::before {
-    content: "◂";
-    font-size: 0.8rem;
+    content: "\25C2"; // left triangle ◂
     display: inline-block;
-    margin-right: 0.5rem;
+    margin-right: $link-triangle-gap;
   }
 }
