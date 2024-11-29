@@ -1,0 +1,43 @@
+* How to publish
+
+To start live preview:
+ 1. Run ~yarn dev~ in this directory.
+ 2. Open http://localhost:4321/. All changes in this directory will be rendered on save.
+
+To publish to GitHub Pages (csxtan.github.io):
+ 1. Commit and push this repo to GitHub. The rest will be done automatically by a GitHub action.
+      - site generation is not necessary
+ 2. Check publication status [[https://github.com/csxtan/csxtan.github.io/actions][here]].
+
+To publish to UChicago (math.uchicago.edu/~cindy):
+ 1. Generate site: ~yarn build~
+ 2. Connect to UChicago VPN via Cisco AnyConnect.
+ 3. Transfer files:
+        ~scp -r dist/* cindy@math.uchicago.edu:public_html~
+        (password is in Bitwarden)
+ 4. (Only if new files have been added) SSH into server and update file permissions:
+        ~ssh cindy@math.uchicago.edu~
+        ~chmod og+rx -R ~/public_html/~
+
+  - [[https://math.uchicago.edu/miscellany/making-a-website/current-website-guide.pdf][more information on math department publishing]]
+
+
+* File organization
+
+src/pages/: pages (markdown) and layouts
+- index.md (homepage content)
+- _index.astro (homepage layout)
+- _page.astro (layout for a simple markdown page with a link to return to homepage)
+
+src/styles/: stylesheets
+
+public/: images and files
+
+- [[https://docs.astro.build/en/core-concepts/project-structure/][astro directory structure]]
+
+
+* Design notes
+
+- all the triangles are done in CSS ::before and ::after
+- responsive design using [[https://utopia.fyi/clamp/calculator/][utopia clamps]]
+- ! the 404 file doesn't work!

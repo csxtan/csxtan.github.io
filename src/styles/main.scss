@@ -10,7 +10,7 @@
 // FONT FAMILIES
 
 $family-serif: "Times New Roman", serif;
-$family-sans-serif: Arial, Helvetica, sans-serif;
+$family-sans-serif: Helvetica, Arial, sans-serif;
 
 
 
@@ -56,8 +56,11 @@ $title-color:  // titles of papers / talks
 $link-color:
   $blue;
 
-$link-hover-color:
-  $darker-blue;
+$link-emphasis-color:
+  $dark-blue;
+
+$link-visited-color:
+  $dark-blue;
 
 
 
@@ -201,13 +204,26 @@ p, ul, ol {
 a {
   color: $link-color;
   // text-decoration: none;
+  text-decoration: underline;
   text-underline-offset: 0.1rem;
   text-decoration-thickness: 0.05rem;
 
-  &:hover, &:focus  {
-    color: $link-hover-color;
+  &:hover {
+    color: $link-emphasis-color;
     text-decoration: underline;
-    text-decoration-thickness: 0.1rem;
+    text-decoration-thickness: 0.12rem;
+  }
+
+  &:focus {
+    background-color: $link-emphasis-color;
+    color: $white;
+    text-decoration: none;
+    outline: 2pt solid $link-emphasis-color;
+    outline-offset: -1pt;
+  }
+
+  &:visited {
+    color: $link-visited-color;
   }
 }
 
@@ -245,37 +261,42 @@ $link-triangle-gap: 0.4rem;  // gap between triangle and link text
   // formatting second-level list + triangle decoration
   ul li:has(a) {
 
-    // text-indent moves top line relative to the rest of the lines
-    // changing the gap between triangle and the link will also move the top line relative to the rest
-    text-indent: -#{$link-triangle-gap};
-
     // padding-left moves all lines together left to right
-    padding-left: $--space-150;
+    // padding-left: $--space-150;
+    padding-left: $--space-115;
 
     // make spacing better when the list items are side by side on larger displays
     padding-right: 0.2rem;
 
-    // prevent triangle being on a separate line
-    p {
-      display: inline;
-    }
 
-    // add triangle
-    &::before {
-      content: "\23F5";  // right triangle ⏵
-      font-size: 0.7rem;
-      color: $dark-blue;
+    // Triangle adornment on links (removed)
 
-      // otherwise triangle gets underlined
-      display: inline-block;
+    // // text-indent moves top line relative to the rest of the lines
+    // // changing the gap between triangle and the link will also move the top line relative to the rest
+    // text-indent: -#{$link-triangle-gap};
 
-      margin-right: $link-triangle-gap;
-    }
+    // // prevent triangle being on a separate line
+    // p {
+    //   display: inline;
+    // }
 
-    // fix the case when inline <p> adds extra left margin
-    &:has(p)::before {
-      margin-right: calc($link-triangle-gap - 0.3rem)
-    }
+    // // add triangle (removed)
+    // &::before {
+    //   content: "\23F5";  // right triangle ⏵
+    //   font-size: 0.7rem;
+    //   color: $dark-blue;
+
+    //   // otherwise triangle gets underlined
+    //   display: inline-block;
+
+    //   margin-right: $link-triangle-gap;
+    // }
+
+    // // fix the case when inline <p> adds extra left margin
+    // &:has(p)::before {
+    //   margin-right: calc($link-triangle-gap - 0.3rem)
+    // }
+
 
     // extra space after italics and bold (ex. journal title)
     strong em::after {
@@ -315,11 +336,16 @@ ul li {
     color: inherit;  // make link grey not blue
     // text-decoration: none;
 
-    &:hover, &:focus {
-      color: $off-black;
-      text-decoration-color: $darker-grey;
+    &:hover {
+      color: $dark-grey;
       text-decoration: underline;
+      text-decoration-color: $dark-grey;
       text-decoration-thickness: 0.1rem;
+    }
+
+    &:focus {
+      background-color: $dark-grey;
+      color: $white;
     }
   }
 }
